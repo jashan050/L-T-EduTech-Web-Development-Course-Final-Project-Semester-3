@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <div class="row text-center my-4">
+  <div class="col-md-4">
+    <h4 class="section-title">
+      <i class="bi bi-geo-alt-fill"></i> Choose Destination
+    </h4>
+  </div>
+
+  <div class="col-md-4">
+    <h4 class="section-title">
+      <i class="bi bi-calendar-check"></i> Activity Planner
+    </h4>
+  </div>
+
+  <div class="col-md-4">
+    <h4 class="section-title">
+      <i class="bi bi-cash-stack"></i> Budget Tracker
+    </h4>
+  </div>
+</div>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Holiday Planner</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body { 
+      background: #f8f9fa; 
+    }
+    
+    header { 
+      
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1650&q=80') no-repeat center center; 
+      background-size: cover; 
+      color: white;
+      padding: 120px 0;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+    header h1 { 
+      font-size: 3.5rem; 
+      font-weight: 700;
+     }
+    header p {
+       font-size: 1.4rem;
+       }
+    .card {
+       border-radius: 20px; 
+       background: #ffffff; 
+       border: none;
+       box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+      }
+    .section-title { 
+      font-weight: 700; 
+      color:#5591d1;
+     }
+    button { 
+      border-radius: 12px !important; 
+    }
+    .destination-img { 
+      width: 100%; 
+      height: 180px; 
+      object-fit: cover; 
+      border-radius: 12px; 
+    }
+  
+  </style>
+</head>
+<body>
+  <header class="text-center mb-5">
+    <h1>Holiday Planner</h1>
+    <p>Plan, explore, and enjoy your perfect vacation</p>
+  </header>
+
+  <div class="container mb-5">
+  
+    <div class="card p-4 mb-5 shadow-sm">
+      <h4 class="section-title mb-3">Choose Destination</h4>
+      <div class="mb-3">
+        <select id="destType" class="form-select">
+          <option value="beach">Beach</option>
+          <option value="mountains">Mountains</option>
+          <option value="city">City</option>
+        </select>
+      </div>
+      <button class="btn btn-primary mb-4" onclick="showDestinations()">Show Destinations</button>
+      <div id="destGrid" class="row gy-4"></div>
+    </div>
+
+    <title>Hotel Image Selector</title>
+     <div class="card p-4 mb-5 shadow-sm">
+      <h4 class="section-title mb-3">Accommodation & Transport</h4>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="hotel" class="form-label">Hotel</label>
+          <select id="hotel" class="form-select">
+            <option>Hotel A</option>
+            <option>Hotel B</option>
+            <option>Hotel C</option>
+          </select>
+        </div>
+
+  <style>
+    .hotel-img {
+      width: 100%;
+      max-width: 400px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-top: 15px;
+      display: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+  <label>Select Hotel</label><br>
+  <select id="hotel" onchange="showHotelImage()">
+    <option value="">-- Select Hotel --</option>
+    <option value="A">Hotel A</option>
+    <option value="B">Hotel B</option>
+    <option value="C">Hotel C</option>
+  </select>
+  
+  <img id="hotelImg" class="hotel-img">
+
+  <script>
+    function showHotelImage() {
+      const hotel = document.getElementById("hotel").value;
+      const img = document.getElementById("hotelImg");
+
+      if (hotel === "A") {
+        img.src = "https://media-cdn.tripadvisor.com/media/photo-s/2c/1c/d8/a9/welcome-to-the-holiday.jpg";
+        img.style.display = "block";
+      } 
+      else if (hotel === "B") {
+        img.src = "https://r1imghtlak.mmtcdn.com/47934cee5bec11eb85e20242ac110007.jpg";
+        img.style.display = "block";
+      } 
+      else if (hotel === "C") {
+        img.src = "https://media-cdn.tripadvisor.com/media/photo-s/2b/cf/a3/57/hotel-overview.jpg";
+        img.style.display = "block";
+      } 
+      else {
+        img.style.display = "none";
+      }
+    }
+  </script>
+
+        <div class="col-md-6">
+          <label for="transport" class="form-label">Transport</label>
+          <select id="transport" class="form-select">
+            <option>Flight</option>
+            <option>Train</option>
+            <option>Bus</option>
+          </select>
+        
+    </div>
+    
+    <div class="card p-4 mb-5 shadow-sm">
+      <h4 class="section-title mb-3">Activity Planner</h4>
+      <div class="row g-3">
+        <div class="col-md-5">
+          <select id="activity" class="form-select">
+            <option>Sightseeing</option>
+            <option>Adventure Sports</option>
+            <option>Shopping</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <input id="date" type="date" class="form-control" />
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-success w-100" onclick="addActivity()">Add Activity</button>
+        </div>
+      </div>
+      <ul id="activityList" class="mt-4 list-group"></ul>
+    </div>
+    
+    <div class="card p-4 mb-5 shadow-sm">
+      <h4 class="section-title mb-3">Budget Tracker</h4>
+      <div class="row g-3">
+        <div class="col-md-8">
+          <input id="budgetInput" placeholder="Enter amount (₹)" class="form-control" />
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-warning w-100" onclick="addBudget()">Add Cost</button>
+        </div>
+      </div>
+      <p id="budgetTotal" class="mt-3 fw-bold fs-5">Total: ₹0</p>
+    </div>
+  </div>
+
+  <script>
+    const destinations = {
+      beach: [
+        { name: 'Maldives', img: 'https://www.sunsiyam.com/media/qnfnzgmq/ssiv_general_04.jpg?width=782&height=521&mode=max' },
+        { name: 'Bali', img: 'https://cdn.audleytravel.com/2478/1770/79/16027396-pura-ulun-danu-bratan-bali.jpg' },
+        { name: 'Phuket', img: 'https://www.pelago.com/img/destinations/phuket/0502-0403_phuket.jpg' },
+      ],
+      mountains: [
+        { name: 'Switzerland Alps', img: 'https://media.assettype.com/outlooktraveller/import/outlooktraveller/public/uploads/articles/explore/Depositphotos_66016481_S.jpg?w=1200&h=900&auto=format%2Ccompress&fit=max&enlarge=true' },
+        { name: 'Himalayas', img: 'https://lp-cms-production.imgix.net/2021-01/GettyRF_450207051.jpg?auto=compress&format=auto&fit=crop&q=50&w=1200&h=800' },
+        { name: 'Rocky Mountains', img: 'https://www.meganstarr.com/wp-content/uploads/2020/11/Moraine-Lake-in-Banff-Canada.jpg' },
+      ],
+      city: [
+        { name: 'New York', img: 'https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg' },
+        { name: 'Paris', img: 'https://www.royalcaribbean.com/media-assets/pmc/content/dam/shore-x/paris-le-havre-leh/lh17-paris-sightseeing-without-lunch/stock-photo-skyline-of-paris-with-eiffel-tower-at-sunset-in-paris-france-eiffel-tower-is-one-of-the-most-752725282.jpg?w=1920' },
+        { name: 'Tokyo', img: 'https://www.diplomatisches-magazin.de/fileadmin/_processed_/f/4/csm_jezael-melgoza-1127048-unsplash_3af6a70a55.jpg' },
+      ]
+    };
+
+    function showDestinations() {
+      
+      const type = document.getElementById('destType').value;
+      const grid = document.getElementById('destGrid');
+      grid.innerHTML = '';
+      (destinations[type] || []).forEach(dest => {
+        const col = document.createElement('div');
+        col.className = 'col-md-4';
+        col.innerHTML = `
+          <div class="card h-100">
+            <img src="${dest.img}" alt="${dest.name}" class="destination-img" />
+            <div class="card-body">
+              <h5 class="card-title">${dest.name}</h5>
+              <button class="btn btn-sm btn-outline-primary" onclick="chooseDestination('${dest.name}')">Select</button>
+            </div>
+          </div>
+        `;
+        grid.append(col);
+      });
+    }
+
+    let chosenDestination = '';
+    function chooseDestination(name) {
+      chosenDestination = name;
+      alert('You selected: ' + name);
+    }
+
+    function addActivity() {
+      
+      const activity = document.getElementById('activity').value;
+      const date = document.getElementById('date').value;
+      if (date) {
+        const li = document.createElement('li');
+        li.className = 'list-group-item';
+        li.textContent = `${activity} on ${date}`;
+        document.getElementById('activityList').appendChild(li);
+      }
+    }
+
+    let total = 0;
+    function addBudget() {
+      const amt = Number(document.getElementById('budgetInput').value);
+      if (amt > 0) {
+        total += amt;
+        document.getElementById('budgetTotal').innerText = 'Total: ₹' + total;
+      }
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  .mini-footer{
+    background:#5591d1;
+    color:#fff;
+    padding:20px 0;
+    text-align:center;
+    font-size:14px;
+  }
+  .mini-footer a{
+    color:#fff;
+    margin:0 10px;
+    text-decoration:none;
+    font-weight:500;
+  }
+  .mini-footer a:hover{
+    text-decoration:underline;
+  }
+</style>
+
+<footer class="mini-footer">
+  <p>
+     support@holidayplanner.com |
+     +91 9876311415
+  </p>
+  <p>
+    <a href="#" onclick="social('Instagram')">Instagram</a> •
+    <a href="#" onclick="social('Facebook')">Facebook</a> •
+    <a href="#" onclick="social('Twitter')">Twitter</a>
+  </p>
+  <p>2025 Holiday Planner</p>
+</footer>
+
+<script>
+  function social(name){
+    alert("Visit us on " + name);
+  }
+</script>
+
+</body>
+</html>
